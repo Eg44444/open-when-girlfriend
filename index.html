@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#d6ebfa">
+<title>Open When — For My Girlfriend ♡</title>
+<style>
+:root{--sky:#a9d6f5;--pale:#d6ebfa;--white:#f8fcff;--navy:#547c9d;--ink:#36566f}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:linear-gradient(180deg,#9fd2f2 0%,#d6ebfa 48%,#f8fcff 100%);overflow-x:hidden}
+.cloud{position:fixed;background:#fff;border-radius:100px;opacity:.72;filter:blur(.2px);z-index:0}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.c1{width:170px;height:54px;top:8%;left:-30px}.c1:before{width:70px;height:70px;left:25px;bottom:10px}.c1:after{width:85px;height:85px;left:75px;bottom:0}
+.c2{width:190px;height:58px;top:22%;right:-50px}.c2:before{width:80px;height:80px;left:35px;bottom:10px}.c2:after{width:75px;height:75px;left:100px;bottom:0}
+main{position:relative;z-index:1;max-width:760px;margin:auto;padding:38px 18px 55px}
+header{text-align:center;padding:24px 12px 18px}
+.eyebrow{font:12px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:#527a9b}
+h1{font-size:clamp(34px,8vw,58px);font-weight:normal;margin:12px 0 4px;color:#416b8d}
+.subtitle{font-style:italic;font-size:18px;color:#6488a5}
+.flower{font-size:23px;letter-spacing:10px;margin-top:16px;color:#fff;text-shadow:0 1px 5px #91bddb}
+.intro{max-width:510px;margin:12px auto 24px;text-align:center;line-height:1.65;color:#4f718b;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+button{font:inherit;cursor:pointer}
+.category{border:1px solid rgba(84,124,157,.2);background:rgba(248,252,255,.82);color:#4c7392;border-radius:18px;padding:17px 12px;min-height:84px;box-shadow:0 5px 18px rgba(71,119,155,.08);transition:.18s}
+.category:hover,.category.active{background:#fff;border-color:#7fb7dd;transform:translateY(-2px);box-shadow:0 8px 20px rgba(71,119,155,.15)}
+.category span{display:block;font-size:24px;margin-bottom:7px}
+.category strong{font:14px Arial,sans-serif}
+.letter{display:none;margin:22px auto 0;max-width:590px;padding:25px 22px;background:rgba(255,255,255,.9);border:1px solid #c6e2f4;border-radius:22px;text-align:center;box-shadow:0 12px 32px rgba(71,119,155,.12)}
+.letter.show{display:block;animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.letter h2{font-size:24px;font-weight:normal;color:#527c9d;margin:0 0 14px}
+.message{font-size:19px;line-height:1.7;white-space:pre-line;color:#46657d}
+.openbtn{margin-top:18px;border:0;border-radius:999px;background:#7fb9df;color:#fff;padding:13px 22px;font: bold 14px Arial,sans-serif;box-shadow:0 5px 12px rgba(84,124,157,.18)}
+.openbtn:disabled{opacity:.45;cursor:not-allowed}
+footer{text-align:center;margin-top:34px;font-size:14px;color:#6386a1;font-style:italic}
+@media(max-width:420px){.grid{gap:9px}.category{padding:14px 8px}.category strong{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="cloud c1"></div><div class="cloud c2"></div>
+<main>
+<header>
+<div class="eyebrow">a little place made for you</div>
+<h1>Open When ♡</h1>
+<div class="subtitle">For My Girlfriend</div>
+<div class="flower">✿ ❀ ✿</div>
+</header>
+<p class="intro">Untuk hari-harimu yang berbeda. Pilih satu keadaan yang paling menggambarkan perasaanmu, lalu buka pesan kecil dariku. Semoga bisa menemanimu, kapan pun kamu membutuhkannya. 🩵</p>
+<section class="grid" id="categories" aria-label="Pilih kategori"></section>
+<section class="letter" id="letter" aria-live="polite">
+<h2 id="letterTitle">A little message for you</h2>
+<div class="message" id="message"></div>
+<button class="openbtn" id="another" type="button">Buka pesan lainnya ↻</button>
+</section>
+<footer>made with a little love, just for you ♡<br>☁︎ 𓂃 ࣪˖</footer>
+</main>
+<script>
+const letters = [
+{title:"When You're Sad 🥺",icon:"🥺",messages:[
+"Kalau hari ini terasa berat, nggak apa-apa istirahat sebentar. Kamu nggak harus selalu terlihat kuat. Aku harap kamu ingat kalau ada seseorang yang selalu berharap harimu membaik.",
+"Pelan-pelan ya. Satu hari yang kurang baik bukan berarti semuanya akan selalu seperti ini. Semoga setelah ini ada hal kecil yang bikin kamu tersenyum.",
+"Kalau dunia terasa berisik, ambil waktu buat dirimu sendiri. Kamu tetap berharga, bahkan di hari ketika kamu merasa sedang nggak baik-baik saja."
+]},
+{title:"When You Miss Me 💌",icon:"💌",messages:[
+"Kalau kamu lagi kangen, anggap saja pesan ini sebagai titipan kecil dariku. Jarak atau sibuknya hari nggak mengubah rasa sayangku.",
+"Aku mungkin nggak selalu ada tepat di sampingmu, tapi aku selalu senang punya kamu di hidupku. Nanti kita cerita banyak hal lagi, ya.",
+"Ini pengingat kecil: ada seseorang yang mungkin sekarang sedang melakukan hal biasa, tapi tetap menyimpan kamu di pikirannya."
+]},
+{title:"When You're Angry 😤",icon:"😤",messages:[
+"Tarik napas dulu, ya. Kamu boleh kesal dan boleh punya waktu sendiri. Nggak perlu memaksakan diri untuk langsung baik-baik saja.",
+"Kalau ada yang bikin kamu jengkel, semoga kamu bisa menemukan cara yang baik untuk mengeluarkannya. Perasaanmu tetap layak didengar.",
+"Pesan ini tidak akan menyuruhmu langsung tersenyum. Istirahat dulu, minum air, lalu hadapi semuanya saat kamu sudah lebih tenang."
+]},
+{title:"When You Can't Sleep 🌙",icon:"🌙",messages:[
+"Malam ini semoga pikiranmu pelan-pelan tenang. Nggak semua hal harus selesai malam ini. Besok masih ada waktu untuk memikirkannya.",
+"Pejamkan mata, lepaskan dulu hal-hal yang belum bisa kamu kendalikan. Semoga tidurmu nyaman dan mimpimu menyenangkan.",
+"Kalau belum mengantuk, coba istirahat tanpa memikirkan banyak hal. Kamu sudah melewati hari ini, dan itu cukup."
+]},
+{title:"When You're Overthinking ☁️",icon:"☁️",messages:[
+"Nggak semua hal yang kamu takutkan akan benar-benar terjadi. Coba beri dirimu kesempatan untuk melihat semuanya dengan lebih tenang.",
+"Kamu nggak harus punya semua jawaban sekarang. Satu langkah kecil juga tetap sebuah kemajuan.",
+"Jangan terlalu keras sama diri sendiri, ya. Kamu boleh salah, boleh bingung, dan boleh belajar pelan-pelan."
+]},
+{title:"When You Need a Hug 🫂",icon:"🫂",messages:[
+"Anggap saja pesan ini sebagai pelukan virtual yang hangat. Semoga kamu merasa sedikit lebih tenang setelah membacanya.",
+"Kalau aku bisa menyampaikan satu hal sekarang, aku ingin bilang: kamu nggak harus menghadapi semuanya sendirian.",
+"Peluk jauh untuk kamu. Semoga hari ini memperlakukanmu dengan lebih lembut."
+]},
+{title:"When You Feel Lonely 🩵",icon:"🩵",messages:[
+"Kalau sedang merasa sendiri, ingat bahwa kehadiranmu berarti. Semoga kamu menemukan seseorang yang bisa mendengarkanmu dengan baik hari ini.",
+"Ada banyak hal kecil yang membuat dunia lebih baik, dan salah satunya adalah kamu. Jangan lupa itu, ya.",
+"Kamu pantas ditemani, dihargai, dan didengarkan. Semoga rasa sepi ini segera berganti dengan rasa hangat."
+]},
+{title:"When You Need a Laugh 😂",icon:"😂",messages:[
+"Pengumuman penting: kamu diwajibkan tersenyum minimal satu kali setelah membaca pesan ini. Kalau gagal, silakan ulangi dari awal. WKWK.",
+"Aku punya lelucon, tapi takut kamu malah ketawa karena kasihan. Jadi ya sudah, yang penting kamu senyum dulu.",
+"Kalau hari ini belum ada yang bikin kamu ketawa, semoga pesan random ini berhasil jadi penyebabnya. Misi kecil dimulai!"
+]},
+{title:"When You're Tired 🌧️",icon:"🌧️",messages:[
+"Berhenti sebentar bukan berarti menyerah. Kamu boleh istirahat dan mengisi tenaga sebelum melanjutkan lagi.",
+"Terima kasih sudah berusaha sejauh ini. Jangan lupa memberi dirimu waktu untuk bernapas dan menikmati hal-hal sederhana.",
+"Hari ini kamu sudah melakukan yang kamu bisa. Semoga malam ini kamu mendapat istirahat yang cukup."
+]},
+{title:"When You Need Love 💗",icon:"💗",messages:[
+"Aku mungkin nggak selalu pandai merangkai kata, tapi aku ingin kamu tahu bahwa kamu sangat berarti bagiku.",
+"Ini pengingat sederhana: aku bersyukur bisa mengenalmu dan berbagi banyak cerita denganmu. Terima kasih sudah menjadi bagian dari hariku.",
+"Kalau kamu lupa betapa berharganya dirimu, baca pesan ini sekali lagi. Kamu pantas mendapatkan hal-hal baik, selalu."
+]}
+];
+let selected = null, lastIndex = -1;
+const grid = document.getElementById("categories");
+const panel = document.getElementById("letter");
+const title = document.getElementById("letterTitle");
+const message = document.getElementById("message");
+const another = document.getElementById("another");
+letters.forEach((item,i)=>{
+ const b=document.createElement("button");
+ b.className="category"; b.type="button";
+ b.innerHTML=`<span>${item.icon}</span><strong>${item.title.replace(item.icon,"").trim()}</strong>`;
+ b.addEventListener("click",()=>{
+  selected=i; lastIndex=-1;
+  document.querySelectorAll(".category").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");
+  showMessage();
+  panel.scrollIntoView({behavior:"smooth",block:"nearest"});
+ });
+ grid.appendChild(b);
+});
+function showMessage(){
+ if(selected===null)return;
+ const options=letters[selected].messages;
+ let n=Math.floor(Math.random()*options.length);
+ if(options.length>1 && n===lastIndex)n=(n+1+Math.floor(Math.random()*(options.length-1)))%options.length;
+ lastIndex=n;
+ title.textContent=letters[selected].title;
+ message.textContent=options[n];
+ panel.classList.add("show");
+}
+another.addEventListener("click",showMessage);
+</script>
+</body>
+</html>
